@@ -168,7 +168,7 @@ export default defineConfig({
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
+    formatting: 'none',//'prettify',//'minify',
     onFinished() { generateSitemap() },
     onPageRendered: (route, html, ctx) => {
       return html.replace('<!--page-css-outlet-->', (ctx as any).afterRender())
