@@ -8,6 +8,8 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br> with modul
 
 <br>
 
+This adds the [NaiveUI](https://www.naiveui.com/) component library to Vitesse, working with Static Site Generation (SSG).
+
 If you are really into the "Vitesse" starter template created by [Anthony Fu](https://github.com/antfu) (Vue core team member) but want to use the clean architectural pattern instead of monolithic architecture, then you can clone this repo and use your own project. If you want a quick introduction concept, you can read this very short [blog post](https://www.shamscorner.com/blog/vue-3-vite-modular-architecture-vitesse).
 
 <br>
@@ -144,14 +146,14 @@ As this template is strongly opinionated, the following provides a curated list 
 
 ### GitHub Template
 
-[Create a repo from this template on GitHub](https://github.com/shamscorner/vitesse-stackter-clean-architect/generate).
+[Create a repo from this template on GitHub](https://github.com/arijs/vitesse-modular-naiveui/generate).
 
 ### Clone to local
 
 If you prefer to do it manually with the cleaner git history
 
 ```bash
-npx degit antfu/vitesse my-vitesse-app
+npx degit arijs/vitesse-modular-naiveui my-vitesse-app
 cd my-vitesse-app
 pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 ```
