@@ -36,7 +36,12 @@ const timestamp = ref(1183135260000)
     <div class="py-4" />
 
     <div>
-      <n-date-picker v-model:value="timestamp" format="P" type="date" clearable />
+      <n-date-picker
+        v-model:value="timestamp"
+        format="P"
+        type="date"
+        clearable
+      />
       <button
         class="m-3 text-sm btn"
         @click="go"

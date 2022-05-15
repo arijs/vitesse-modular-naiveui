@@ -1,2 +1,1 @@
-export { default as ptBR } from './locale'
-export { default as datePtBR } from './date'
+export { ptBR, datePtBR } from 'naive-ui'
