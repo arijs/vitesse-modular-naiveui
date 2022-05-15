@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { DefaultApolloClient } from '@vue/apollo-composable'
-import { apolloClient } from './common/ApolloClient'
+import { ApolloClients } from '@vue/apollo-composable'
+import { apolloClient, otherApiClient } from './common/ApolloClient'
 import { isDark, preferredDark } from '~/common/composables'
 import { ptBR, datePtBR } from '~/common/naive-ui/pt-br/index'
 
 // https://v4.apollo.vuejs.org/
-provide(DefaultApolloClient, apolloClient)
+provide(ApolloClients, {
+  default: apolloClient,
+  otherApi: otherApiClient,
+})
 
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,

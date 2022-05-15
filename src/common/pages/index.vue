@@ -1,7 +1,10 @@
 <script setup lang="ts">
 // graphql example
 import { useExampleQuery } from '~/common/services/useExample.query'
+import { useOtherApiQuery } from '../services/useOtherApi.query'
+
 const { result, loading, error } = useExampleQuery()
+const otherApi = reactive(useOtherApiQuery(5))
 
 // Routing
 const router = useRouter()
@@ -76,6 +79,21 @@ const timestamp = ref(1183135260000)
           <div>Company CEO: {{ result.company.ceo }}</div>
           <div>Roadster Apoapsis_au: {{ result.roadster.apoapsis_au }}</div>
         </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="mt-5 text-lg font-semibold">Other API</h2>
+      <div v-if="otherApi.loading">
+        Loading. . .
+      </div>
+      <div v-else-if="otherApi.error">
+        Error: {{ otherApi.error.message }}
+      </div>
+      <div v-else-if="otherApi.result">
+        <div class="mb-1 text-lg font-semibold">
+          Example Query Result:
+        </div>
+        <code>{{ otherApi.result }}</code>
       </div>
     </div>
 
