@@ -6,6 +6,7 @@ import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-vue-markdown'
@@ -82,6 +83,7 @@ export default defineConfig({
           prefix: false,
           // enabledCollections: ['carbon']
         }),
+        NaiveUiResolver(),
       ],
     }),
 
@@ -168,6 +170,9 @@ export default defineConfig({
     script: 'async',
     formatting: 'minify',
     onFinished() { generateSitemap() },
+    onPageRendered: (route, html, ctx) => {
+      return html.replace('<!--page-css-outlet-->', (ctx as any).afterRender())
+    },
   },
 
   ssr: {

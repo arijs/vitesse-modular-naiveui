@@ -11,6 +11,7 @@ const go = () => {
 
 // Internationalization
 const { t } = useI18n()
+const timestamp = ref(1183135260000)
 </script>
 
 <template>
@@ -35,6 +36,7 @@ const { t } = useI18n()
     <div class="py-4" />
 
     <div>
+      <n-date-picker v-model:value="timestamp" format="P" type="date" clearable />
       <button
         class="m-3 text-sm btn"
         @click="go"

@@ -2,6 +2,7 @@
 import { DefaultApolloClient } from '@vue/apollo-composable'
 import { apolloClient } from './common/ApolloClient'
 import { isDark, preferredDark } from '~/common/composables'
+import { ptBR, datePtBR } from '~/common/naive-ui/pt-br/index'
 
 // https://v4.apollo.vuejs.org/
 provide(DefaultApolloClient, apolloClient)
@@ -26,8 +27,21 @@ useHead({
     },
   ],
 })
+
+const refMsgTargetEl = ref<any>()
 </script>
 
 <template>
-  <RouterView />
+  <n-config-provider :locale="ptBR" :date-locale="datePtBR">
+    <n-loading-bar-provider>
+      <n-message-provider :to="refMsgTargetEl">
+        <n-notification-provider>
+          <n-dialog-provider>
+            <router-view />
+            <div ref="refMsgTargetEl" class="app-msg-target"></div>
+          </n-dialog-provider>
+        </n-notification-provider>
+      </n-message-provider>
+    </n-loading-bar-provider>
+  </n-config-provider>
 </template>
