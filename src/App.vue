@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { ptBR, datePtBR } from 'naive-ui'
 import { ApolloClients } from '@vue/apollo-composable'
 import { apolloClient, otherApiClient } from './common/ApolloClient'
 import { isDark, preferredDark } from '~/common/composables'
-import { ptBR, datePtBR } from '~/common/naive-ui/pt-br/index'
 
 // https://v4.apollo.vuejs.org/
 provide(ApolloClients, {
