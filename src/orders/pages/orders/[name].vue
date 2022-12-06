@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useOrderStore } from '~/orders/stores/order'
-import { Plan } from '~/orders/types/plan'
+import type { Plan } from '~/orders/types/plan'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -34,7 +34,7 @@ const confirmSelectedPlan = () => {
       {{ t('order.order-summary') }}
     </v-title-lg>
     <v-description
-      m="y-5"
+      class="my-5"
     >
       {{ t('order.description') }}
     </v-description>
@@ -47,7 +47,7 @@ const confirmSelectedPlan = () => {
         @click="selectCurrentPlan({
           cost: 59.99,
           title: t('order.plans.annual'),
-          duration: t('order.year')
+          duration: t('order.year'),
         })"
       />
       <PlanItem
@@ -58,7 +58,7 @@ const confirmSelectedPlan = () => {
         @click="selectCurrentPlan({
           cost: 7.99,
           title: t('order.plans.monthly'),
-          duration: t('order.month')
+          duration: t('order.month'),
         })"
       />
       <PlanItem
@@ -69,15 +69,14 @@ const confirmSelectedPlan = () => {
         @click="selectCurrentPlan({
           cost: 2.99,
           title: t('order.plans.weekly'),
-          duration: t('order.week')
+          duration: t('order.week'),
         })"
       />
     </div>
 
     <div class="mb-0 mt-8">
       <VButton
-        text="base"
-        p="x-4 y-2"
+        class="text-base px-4 py-2"
         data-test="btn-confirm-plan"
         @click="confirmSelectedPlan"
       >
@@ -87,9 +86,7 @@ const confirmSelectedPlan = () => {
 
     <div class="mb-8">
       <VButtonText
-        text="gray-500"
-        font="semibold"
-        p="x-4 y-2"
+        class="px-4 py-2 font-semibold text-gray-500"
         @click="router.back()"
       >
         {{ t('order.cancel-order') }}

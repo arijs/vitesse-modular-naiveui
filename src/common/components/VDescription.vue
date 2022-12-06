@@ -1,8 +1,7 @@
 <template>
   <p
-    text="gray-500"
-    dark="text-gray-400"
+    class="text-gray-500 dark:text-gray-400"
   >
-    <slot></slot>
+    <slot />
   </p>
 </template>

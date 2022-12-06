@@ -1,15 +1,10 @@
-import { defineConfig } from 'windicss/helpers'
-import colors from 'windicss/colors'
-import typography from 'windicss/plugin/typography'
-
-export default defineConfig({
-  darkMode: 'class',
-  // https://windicss.org/posts/v30.html#attributify-mode
-  attributify: true,
-
-  plugins: [
-    typography(),
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx,md}',
   ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       typography: {
@@ -24,7 +19,7 @@ export default defineConfig({
               'textDecoration': 'underline',
               '&:hover': {
                 opacity: 1,
-                color: colors.teal[600],
+                color: '#0D9488',
               },
             },
             b: { color: 'inherit' },
@@ -40,4 +35,7 @@ export default defineConfig({
       },
     },
   },
-})
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+}
