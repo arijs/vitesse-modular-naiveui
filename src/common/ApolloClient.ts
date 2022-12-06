@@ -1,10 +1,10 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core'
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 
 // Cache implementation
 const cache = new InMemoryCache()
 
 // HTTP connection to the API
-const httpLink = createHttpLink({
+const httpLink = new HttpLink({
   // You should use an absolute URL here
   uri: 'https://api.spacex.land/graphql/',
 })
@@ -16,7 +16,7 @@ export const apolloClient = new ApolloClient({
 })
 
 // HTTP connection to the API
-const otherApiHttpLink = createHttpLink({
+const otherApiHttpLink = new HttpLink({
   // You should use an absolute URL here
   uri: import.meta.env.VITE_GQL_URI,
   headers: {
